@@ -13,7 +13,7 @@ This website includes a lot of Steven:
 
 ## Live Status:🟢
 Check out the latest version here:  
-https://ilikesteven67.github.io/ILikeSteven67/
+https://ilikesteven67.github.io/Stupid-Steven-67-Website/
 
 ## Instructions:
 No installation required - open the website on your browser and enjoy!
