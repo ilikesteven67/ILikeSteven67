@@ -1,4 +1,5 @@
 const pageName = document.body.dataset.page;
+const siteHeader = document.querySelector(".site-header");
 const navLinks = document.querySelectorAll(".main-nav a");
 const revealItems = document.querySelectorAll(".hero-copy, .hero-card, .content-section");
 const searchForms = document.querySelectorAll("[data-search-form]");
@@ -450,6 +451,32 @@ if (pageName === "search") {
   }
 
   renderSearchResultsPage(query);
+}
+
+if (siteHeader) {
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 12) {
+        siteHeader.classList.remove("is-hidden");
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      if (currentScrollY > lastScrollY + 8) {
+        siteHeader.classList.add("is-hidden");
+      } else if (currentScrollY < lastScrollY - 8) {
+        siteHeader.classList.remove("is-hidden");
+      }
+
+      lastScrollY = currentScrollY;
+    },
+    { passive: true }
+  );
 }
 
 revealItems.forEach((item) => item.classList.add("reveal"));
