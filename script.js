@@ -304,11 +304,11 @@ function renderDropdown(dropdown, query, results, selectedIndex = -1) {
     .slice(0, 6)
     .map(
       (result, index) => `
-        <button class="search-dropdown-item ${index === selectedIndex ? "is-selected" : ""}" type="button" data-result-index="${index}">
+        <a class="search-dropdown-item ${index === selectedIndex ? "is-selected" : ""}" href="${result.page}#${result.anchor}" data-result-index="${index}">
           <span class="search-result-title">${highlightMatch(result.title, query)}</span>
           <span class="search-result-meta">${result.pageLabel}</span>
           <span class="search-result-snippet">${buildResultSnippet(result.content, query)}</span>
-        </button>
+        </a>
       `
     )
     .join("");
@@ -404,19 +404,6 @@ searchForms.forEach((form) => {
 
     if (event.key === "Escape") {
       hideDropdown(dropdown);
-    }
-  });
-
-  dropdown.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-result-index]");
-
-    if (!button) {
-      return;
-    }
-
-    const result = activeResults[Number(button.dataset.resultIndex)];
-    if (result) {
-      navigateToResult(result);
     }
   });
 
