@@ -1,7 +1,7 @@
 const pageName = document.body.dataset.page;
 const siteHeader = document.querySelector(".site-header");
 const navLinks = document.querySelectorAll(".main-nav a");
-const revealItems = document.querySelectorAll(".hero-copy, .hero-card, .content-section");
+const revealItems = document.querySelectorAll(".hero-copy, .hero-card, .content-section:not(.search-results-section)");
 const searchForms = document.querySelectorAll("[data-search-form]");
 const resultsHeading = document.querySelector("[data-results-heading]");
 const resultsList = document.querySelector("[data-results-list]");
